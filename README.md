@@ -1,4 +1,4 @@
-<img src="https://upload.wikimedia.org/wikipedia/de/thumb/c/cb/Raspberry_Pi_Logo.svg/1200px-Raspberry_Pi_Logo.svg.png" alt="Raspberry_Pi_Logo" height="42px" width="42px" align="left"><br>
+<img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F9f%2Fce%2F4b%2F9fce4b8b679e76b89ecf344d546f15b8.jpg&f=1" alt="Light Bulb" height="42px" width="42px" align="left"><br>
 
 # Tipps and Tricks
 <div>
