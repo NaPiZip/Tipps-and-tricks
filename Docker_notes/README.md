@@ -46,13 +46,13 @@ a79fbc753761
 It is helpful form time to time to debug a running container, the following steps describe the procedure.
 
 1. Open a new Docker Quickstart Terminal.
-- Locate the container of interest.
+2. Locate the container of interest.
 ```
 $ docker ps
 CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS              PORTS                  NAMES
 ab05adb76f7e        jupyter/minimal-notebook   "tini -g -- start-..."   3 minutes ago       Up 2 minutes        0.0.0.0:80->8888/tcp   jolly_wescoff
 ```
-- Run the following command with the specified container id and the `/bin/bash` application at the end.
+3. Run the following command with the specified container id and the `/bin/bash` application at the end.
 ```
 $ docker exec -it ab05adb76f7e /bin/bash
 jovyan@ab05adb76f7e:~$
@@ -83,30 +83,30 @@ This is a description on how to mount additional directories within our Docker c
 ```
 $ docker stop [Container ID]
 ```
-- Stop the Docker machine, it is usually `default`.
+2. Stop the Docker machine, it is usually `default`.
 ```
 $ docker-machine stop [machine name]   
 ```
-- Navigate to the Virtualbox directory.
+3. Navigate to the Virtualbox directory.
 ```
 $ cd "C:\Program Files\Oracle\VirtualBox"
 ```
-- Run the following command in order to add e.g. `E:080_Github/` drive.<br>
+4. Run the following command in order to add e.g. `E:080_Github/` drive.<br>
 ```
 VBoxManage.exe sharedfolder add default --name "e/080_Github" --hostpath \\?\e:\080_Github" --automount
 VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root 1
 VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/e//080_Github 1
 ```
-- Open the Docker Quickstart Terminal.
-- SSH into the Docker machine, e.g. default.
+5. Open the Docker Quickstart Terminal.
+6. SSH into the Docker machine, e.g. default.
 ```
 $ docker-machine ssh default
 ```
-- Check if the links exist if not create them.
+7. Check if the links exist if not create them.
 ```
 $ sudo mkdir --parents /e/080_Github
 $ sudo mount -t vboxsf e/080_Github /e/080_Github/
 ```
 
 ## Contributing
-To get started with contributing to me GitHub repository, please contact me [Slack](https://join.slack.com/t/napi-friends/shared_invite/enQtNDg3OTg5NDc1NzUxLWU1MWNhNmY3ZTVmY2FkMDM1ODg1MWNlMDIyYTk1OTg4OThhYzgyNDc3ZmE5NzM1ZTM2ZDQwZGI0ZjU2M2JlNDU).
+To get started with contributing to my GitHub repository, please contact me [Slack](https://join.slack.com/t/napi-friends/shared_invite/enQtNDg3OTg5NDc1NzUxLWU1MWNhNmY3ZTVmY2FkMDM1ODg1MWNlMDIyYTk1OTg4OThhYzgyNDc3ZmE5NzM1ZTM2ZDQwZGI0ZjU2M2JlNDU).
