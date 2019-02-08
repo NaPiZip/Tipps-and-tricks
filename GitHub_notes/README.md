@@ -127,8 +127,7 @@ HEAD is now at d694ee6 Created example_file with Text as content.
 ```
 3. Verify the result.
 ```
-$ git workt
-ree list
+$ git worktree list
 /e/demo/local_repository_2  fe3906d [master]
 /e/demo/feature1_branch     d694ee6 [feature1]
 ```
