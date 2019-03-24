@@ -15,8 +15,8 @@ This repository contains notes I took to of different topics, in order to have a
 
 ## Index
 
-1. Docker notes
-2. GitHub
+1. [Docker notes](https://github.com/NaPiZip/Tipps-and-tricks/tree/master/Docker_notes)
+2. [GitHub](https://github.com/NaPiZip/Tipps-and-tricks/tree/master/GitHub_notes)
 
 ## Contributing
 To get started with contributing to my GitHub repository, please contact me [Slack](https://join.slack.com/t/napi-friends/shared_invite/enQtNDg3OTg5NDc1NzUxLWU1MWNhNmY3ZTVmY2FkMDM1ODg1MWNlMDIyYTk1OTg4OThhYzgyNDc3ZmE5NzM1ZTM2ZDQwZGI0ZjU2M2JlNDU).
