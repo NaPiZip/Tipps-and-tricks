@@ -48,7 +48,7 @@ origin  ../remote_repository/ (push)
 ```
 git checkout -b feature1
 ```
-7. Add files to the local repository and commit the changes.
+8. Add files to the local repository and commit the changes.
 ```
 $ echo "Text" > example_file.txt
 $ git add example_file.txt
@@ -57,7 +57,7 @@ $ git commit -m "Created example_file with Text as content."
  1 file changed, 1 insertion(+)
  create mode 100644 example_file.txt
 ```
-8. Push changes to user defined branch e.g. `feature1`.
+9. Push changes to user defined branch e.g. `feature1`.
 ```
 $ git push --set-upstream origin feature1
 Counting objects: 3, done.
