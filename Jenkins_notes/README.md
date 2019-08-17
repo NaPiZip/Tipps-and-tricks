@@ -13,59 +13,29 @@
     </a>
 </div>
 
-## How to get up and running
-This section describes how to set up a "local" remote repository and how to push changes to it. This is helpful if you don't want to push changes to a server, you can create a "local" remote repository on a USB stick or a NAS. This gives you the possibility to back up files within your network.
+## How to get a list of all installed plugins
+This section describes how to get a list of installed jenkins plugins, this can be used to created a `plugins.txt` file, for details see the Docker Jenkins [manual](https://github.com/jenkinsci/docker/blob/master/README.md).
 
-1. Navigate to the directory where you want to create the "local" remote repository.
+1. Start Jenkins
+2. Login using a web browser.
+3. Navigate to the following URL in your browser:
 ```
-$ cd remote_repository/
+http://<jenkins-url>/script
 ```
-2. Initialize a bare git repository.
+4. Execute the following Java code:
 ```
-$ git init --bare
-Initialized empty Git repository in /e/demo/remote_repository/
+List<String> jenkinsPlugins = new ArrayList<String>(Jenkins.instance.pluginManager.plugins);
+jenkinsPlugins.sort { it.displayName }
+              .each { plugin ->
+                   println ("${plugin.shortName}:${plugin.version}")
+              }
 ```
-3. Navigate to the location of the local repository.
+5. Examine the results.
 ```
-$ cd local_repository_1/
-```
-4. Initialize a empty git repository.
-```
-$ git init
-Initialized empty Git repository in /e/demo/local_repository_1/.git/
-```
-5. Add the remote origin to reference the "local" remote repository.
-```
-$ git remote add origin ../remote_repository/
-```
-6. Query the tracked remote repositories in order to verify the success of the previous step.
-```
-$ git remote -v
-origin  ../remote_repository/ (fetch)
-origin  ../remote_repository/ (push)
-```
-7. Create branch of desire.
-```
-git checkout -b feature1
-```
-7. Add files to the local repository and commit the changes.
-```
-$ echo "Text" > example_file.txt
-$ git add example_file.txt
-$ git commit -m "Created example_file with Text as content."
-[feature1 (root-commit) d694ee6] Created example_file with Text as content.
- 1 file changed, 1 insertion(+)
- create mode 100644 example_file.txt
-```
-8. Push changes to user defined branch e.g. `feature1`.
-```
-$ git push --set-upstream origin feature1
-Counting objects: 3, done.
-Writing objects: 100% (3/3), 247 bytes | 247.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To ../remote_repository/
- * [new branch]      feature1 -> feature1
-Branch 'feature1' set up to track remote branch 'feature1' from 'origin'.
+ant:1.9
+apache-httpcomponents-client-4-api:4.5.5-3.0
+authentication-tokens:1.3
+...
 ```
 
 ## Contributing
