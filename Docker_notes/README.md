@@ -29,6 +29,22 @@ Executing the command: jupyter notebook
 [I 04:03:12.237 NotebookApp] Serving notebooks from local directory: /home/jovyan
 ```
 
+## Purging All Unused or Dangling Images, Containers, Volumes, and Networks
+Docker provides a single command that will clean up any resources — images, containers, volumes, and networks — that are dangling (not associated with a container), link can be found [here](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes):
+```
+$ docker system prune
+WARNING! This will remove:
+        - all stopped containers
+        - all volumes not used by at least one container
+        - all networks not used by at least one container
+        - all dangling images
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+dddfae23373bfe21c30ba180c947b0e0825422131a05a04713c1a015f6e82596
+44163b9b2a272aa6f37d2d88aae4ccbb743b4015f57e84ffd0418443925199c6
+...
+```
+
 ## Cleaning dangling Containers
 It sometimes happens that container images are dangling, meaning a build failed and they are not usable. In this case a clean up is needed in order to restore space.
 
