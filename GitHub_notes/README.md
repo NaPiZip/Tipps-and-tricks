@@ -133,5 +133,20 @@ $ git worktree list
 ```
 4. Navigate to desire branch location, add, commit and push changes as desired.
 
+## How to change .sh files to be executable
+The following section describes how change the permission settings of a file in order to be a runnable bash script by default.
+
+1. Make sure that the file you want to change contains a shebang, `example.sh`:
+```
+#!/bin/bash
+...
+```
+2. Type the following command:
+```
+$ git update-index --chmod=+x example.sh
+```
+3. Commit the changes as usual.
+
+
 ## Contributing
 To get started with contributing to my GitHub repository, please contact me [Slack](https://join.slack.com/t/napi-friends/shared_invite/enQtNDg3OTg5NDc1NzUxLWU1MWNhNmY3ZTVmY2FkMDM1ODg1MWNlMDIyYTk1OTg4OThhYzgyNDc3ZmE5NzM1ZTM2ZDQwZGI0ZjU2M2JlNDU).
