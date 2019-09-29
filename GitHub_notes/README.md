@@ -120,8 +120,7 @@ master   fe3906d Created hello_file with Hello as content.
 ```
 2. Use `git worktree` to checkout a additional branch.
 ```
-$ git workt
-ree add ../feature1_branch feature1
+$ git worktree add ../feature1_branch feature1
 Preparing ../feature1_branch (identifier feature1_branch)
 HEAD is now at d694ee6 Created example_file with Text as content.
 ```
