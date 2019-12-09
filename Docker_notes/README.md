@@ -113,7 +113,7 @@ VBoxManage.exe sharedfolder add default --name "e/080_Github" --hostpath \\?\e:\
 VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root 1
 VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/e//080_Github 1
 ```
-5. Open the Docker Quickstart Terminal.
+5. Open the `Docker Quickstart Terminal`.
 6. SSH into the Docker machine, e.g. default.
 ```
 $ docker-machine ssh default
@@ -135,6 +135,37 @@ $ docker ps
 ```
 $ docker logs [Container ID] -f
 ```
+
+## Integrating Docker in Windows Subsystem for Linux (WSL)
+In order to use Docker in `Ubunto on Windows` the following steps need to be performed.
+
+1. Install either the `Docker Toolbox` or `Docker Desktop`, see [here](https://docs.docker.com/docker-for-windows/install/) for a link.
+2. Install `Ubuntu` on Windows, see [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+3. Open the Ubuntu bash and run the following commands, in order to install docker:
+```
+# Install packages to allow apt to use a repository over HTTPS
+$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+# Add Docker's official GPG key
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Set up the repository
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# Update source lists
+sudo apt-get update
+# Install Docker
+sudo apt-get install docker-ce
+```
+4. Connect to docker on WSL by setting the following `env` vars:
+```
+export DOCKER_HOST=tcp://192.168.99.100:2376  // your Docker IP
+export DOCKER_CERT_PATH=/mnt/c/Users/YOUR_USERNAME/.docker/machine/certs
+export DOCKER_TLS_VERIFY=1
+```
+5. Connect to the docker engine:
+```
+$ docker -H tcp://0.0.0.0:2376 images
+```
+
+The instructions where taken form the following [tutorial](https://blog.jayway.com/2017/04/19/running-docker-on-bash-on-windows/), thanks to Tomas Aschan.
 
 ## Contributing
 To get started with contributing to my GitHub repository, please contact me [Slack](https://join.slack.com/t/napi-friends/shared_invite/enQtNDg3OTg5NDc1NzUxLWU1MWNhNmY3ZTVmY2FkMDM1ODg1MWNlMDIyYTk1OTg4OThhYzgyNDc3ZmE5NzM1ZTM2ZDQwZGI0ZjU2M2JlNDU).
