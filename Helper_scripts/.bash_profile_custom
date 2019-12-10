@@ -1,0 +1,32 @@
+# This file is supposed to be executed via the .profile script
+#
+#   It starts an ssh-agent and adds a custom key defined in key_path.
+#
+#
+
+env=~/.ssh/agent.env
+key_path=~/.ssh/git
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    ssh-agent | sed 's/^echo/#echo/' > "$env";
+    . "$env" >| /dev/null ; }
+
+# source env
+agent_load_env
+
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+echo "Started SSH agent state is: " $agent_run_state
+echo "agent_run_state: 0=agent running with key"
+echo "                 1=agent running without key"
+echo "                 2= agent not running/n"
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    echo "Starting SSH Agent."
+    agent_start
+    ssh-add ~/.ssh/git
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    echo "Adding key."
+    ssh-add $key_path
+fi
