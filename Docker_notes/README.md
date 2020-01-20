@@ -109,9 +109,9 @@ $ cd "C:\Program Files\Oracle\VirtualBox"
 ```
 4. Run the following command in order to add e.g. `E:080_Github/` drive.<br>
 ```
-VBoxManage.exe sharedfolder add default --name "e/080_Github" --hostpath \\?\e:\080_Github" --automount
+VBoxManage.exe sharedfolder add default --name "e/080_Github" --hostpath "\\?\e:\080_Github" --automount
 VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root 1
-VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/e//080_Github 1
+VBoxManage.exe setextradata default VBoxInternal2/SharedFoldersEnableSymlinksCreate/e/080_Github 1
 ```
 5. Open the `Docker Quickstart Terminal`.
 6. SSH into the Docker machine, e.g. default.
