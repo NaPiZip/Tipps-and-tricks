@@ -167,5 +167,14 @@ $ docker -H tcp://0.0.0.0:2376 images
 
 The instructions where taken form the following [tutorial](https://blog.jayway.com/2017/04/19/running-docker-on-bash-on-windows/), thanks to Tomas Aschan.
 
+## Docker in Windows Subsystem for Linux (WSL) mount issue
+It is not possible to mount directories in WSL which are formatted as NTFS. The bugticket on GitHub can be found [here](https://github.com/docker/for-win/issues/2151#issuecomment-477613828-permalink).
+
+Workaround for files hosted on NTFS (not Linux native):
+```
+$ mkdir -p /c; sudo mount --bind /mnt/c/ /c
+```
+Then `cd /c/your/project` and run docker commands from there. The bind mount resolves some issues with symlinks."
+
 ## Contributing
 To get started with contributing to my GitHub repository, please contact me [Slack](https://join.slack.com/t/napi-friends/shared_invite/enQtNDg3OTg5NDc1NzUxLWU1MWNhNmY3ZTVmY2FkMDM1ODg1MWNlMDIyYTk1OTg4OThhYzgyNDc3ZmE5NzM1ZTM2ZDQwZGI0ZjU2M2JlNDU).
